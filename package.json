@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nkjm/723990c518acfee6e473"
+    "url": "https://github.com/ikazoy/exflora-sample-for-hackathon"
   },
-  "author": "Kazuki Nakajima",
+  "author": "Yoshiki Ozaki",
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.3.4",
