@@ -1,9 +1,10 @@
 var express = require("express");
 var app = express();
 
-var server = app.listen(3000, function(){
-    console.log("Node.js is listening to PORT:" + server.address().port);
-});
+const port = process.env.PORT || 8080
+app.listen(port, () => {
+  console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
+})
 
 var photoList = [
     {
