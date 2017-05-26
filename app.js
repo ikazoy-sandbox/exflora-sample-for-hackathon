@@ -10,7 +10,8 @@ app.use('/scripts', express.static(__dirname + '/node_modules/flickrapi/browser/
 app.set('view engine', 'ejs');
 
 function getApiKeys(callback, errorcallback) {
-  callback('c253642c98c36ef1ee89f7e554d8d151', 'a9183054ee72c659');
+  // CHANGE THE CREDENTIALS OF FLICKR API
+  callback('Your Flickr API key', 'Your Flickr API secret');
 }
 
 app.get("/", function(req, res) {
@@ -42,14 +43,12 @@ app.get("/", function(req, res) {
         }
         console.log("Got flickr data sending it");
         for (let p of data.photos.photo) {
-          // console.log();
           const src = `https://farm${p.farm}.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`
           photos.push({
             'src': src,
             'title': p.title
           });
         }
-        console.log(photos);
         res.locals.name = 'ozaki';
         res.render('index', {
           'title': 'flickr api sample',
@@ -58,14 +57,11 @@ app.get("/", function(req, res) {
         }, (err, html) => {
           res.send(html);
         })
-        console.log('done');
       });
     });
-    console.log("end")
 
   }, (err) => {
     console.log(err);
     res.send("Error!");
   })
-  console.log("abc")
 });
